@@ -3,32 +3,30 @@ session_start();
 unset($_SESSION["vcode"]);
 // $code = $_POST['code'];
 Header('Content-type: image/PNG');
-// echo "ÑéÖ¤ÂëÏµÍ³-Ëæ»úÈ¡³ö²âÊÔ"."</br>";
 
-// echo "Powered By ÔÂ¹âÍÃ</br>";
-$status = "";
-$success = "";
-$scookies = "";
-$ccode = rand(1,30324);
+
+// echo "Powered By lunarbunnys</br>";
+
+$ccode = $_GET['vcodeid'];
+//$ccode = rand(1,30324);
   // echo $ccode." </br>";
 
 
     $dbname="root";
-    $dbpass="741205Dhw";
+    $dbpass="7root";
     $dbhost="127.0.0.1";
     $dbdatabase="vcode";
  
-    //Éú³ÉÒ»¸öÁ¬½Ó
+    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     $db_connect= new mysqli($dbhost,$dbname,$dbpass,$dbdatabase);
 
-    // »ñÈ¡²éÑ¯½á¹û
+    // ï¿½ï¿½È¡ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½
     $strsql="select * from `sd_vcode` where `id` = '$ccode' limit 1";
     $result=$db_connect->query($strsql);
 	while($row=$result->fetch_array()){
-            // echo "ID:".$row["id"]."ÑéÖ¤´úÂë£º".$row[1]."ÃÜÂë£º".$row["anwser"]."<br />";
-			
+
 	$image = "http://www.chemicalbook.com/CAS/GIF/".$row[1].".gif";
-	// echo $image."</br>";
+
 	
     $imagedata = file_get_contents($image);
 	
@@ -40,8 +38,4 @@ $ccode = rand(1,30324);
     $_SESSION["vcode"] = $row["anwser"];
 
 	}
-	// echo $result;
-	// $image = "http://www.chemicalbook.com/CAS/GIF/".$row[1].".gif";
-	// echo $image;
-	// echo file_get_contents($image);
-	?>
+
