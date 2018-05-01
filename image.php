@@ -7,13 +7,13 @@ Header('Content-type: image/PNG');
 
 // echo "Powered By lunarbunnys</br>";
 
-$ccode = $_GET['vcodeid'];
+$ccode = $_GET['code'];
 //$ccode = rand(1,30324);
   // echo $ccode." </br>";
 
 
     $dbname="root";
-    $dbpass="7root";
+    $dbpass="root";
     $dbhost="127.0.0.1";
     $dbdatabase="vcode";
  
